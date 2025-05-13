@@ -309,9 +309,9 @@
                 <h1>Save Bite</h1>
             </a>
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="index.html">About Us</a>
                 <a href="review.html">Review</a>
-                <a href="faqs.html">FAQs</a>
+                <a href="faq.html">FAQs</a>
                 <a href="contact.html">Contact</a>
             </div>
             <a href="index.html" class="login-btn">LOG IN</a>
@@ -324,10 +324,10 @@
         <p class="page-subtitle">Those who receive kindness today may become the ones who spread it tomorrow.</p>
         
         <div class="registration-form">
-            <form>
+            <form id="register-form"> 
                 <div class="form-group">
                     <label for="register-as" class="form-label">Register as</label>
-                    <select id="register-as" class="form-select">
+                    <select id="register-as" class="form-select" required>
                         <option value="" disabled selected>Select an option</option>
                         <option value="personal">Personal</option>
                         <option value="organization">Organization</option>
@@ -336,16 +336,50 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="region" class="form-label">Region</label>
-                    <input type="text" id="region" class="form-input" placeholder="Enter your region">
+                    <label for="province" class="form-label">Province</label>
+                    <select id="province" class="form-select" required>
+                        <option value="" disabled selected>Select province</option>
+                        <option value="east-java">East Java</option>
+                        <option value="west-java">West Java</option>
+                        <option value="central-java">Central Java</option>
+                        <option value="jakarta">Jakarta</option>
+                        <option value="bali">Bali</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city" class="form-label">City</label>
+                    <select id="city" class="form-select" required>
+                        <option value="" disabled selected>Select city</option>
+                        <option value="surabaya">Surabaya</option>
+                        <option value="malang">Malang</option>
+                        <option value="sidoarjo">Sidoarjo</option>
+                        <option value="gresik">Gresik</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subdistrict" class="form-label">Subdistrict</label>
+                    <select id="subdistrict" class="form-select" required>
+                        <option value="" disabled selected>Select subdistrict</option>
+                        <option value="tegalsari">Tegalsari</option>
+                        <option value="gubeng">Gubeng</option>
+                        <option value="rungkut">Rungkut</option>
+                        <option value="wonokromo">Wonokromo</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="postcode" class="form-label">Post Code</label>
+                    <input type="text" id="postcode" class="form-input" placeholder="Enter your post code" required pattern="[0-9]{5}" maxlength="5">
                 </div>
                 
                 <div class="form-group">
                     <label for="address" class="form-label">Address</label>
-                    <input type="text" id="address" class="form-input" placeholder="Enter your address">
+                    <input type="text" id="address" class="form-input" placeholder="Enter your address" required>
                 </div>
                 
-                <button type="submit" class="submit-button"><a href="index.html" style="color: inherit; text-decoration: none;">Create</a></button>
+                <button type="submit" class="submit-button">Create</button>
             </form>
         </div>
     </main>
@@ -372,7 +406,7 @@
             <div class="footer-links">
                 <h3 class="footer-title">Pages</h3>
                 <ul class="footer-list">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">About Us</a></li>
                     <li><a href="nearme.html">Near Me</a></li>
                     <li><a href="browse.html">Browse Food</a></li>
                     <li><a href="donate.html">Donate</a></li>
@@ -412,5 +446,12 @@
             Copyright © 2023 Hashtag Developer. All Rights Reserved
         </div>
     </footer>
+
+    <script>
+        document.getElementById("register-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Mencegah submit default
+            window.location.href = "login.html"; // Redirect ke login page
+        });
+    </script>
 </body>
 </html>
